@@ -97,10 +97,10 @@ const EditUserPage = () => {
     const validatorConfig = {
         email: {
             isRequired: {
-                message: "Электронная почта обязательна для заполнения"
+                message: "Эл. почта обязательна для заполнения"
             },
             isEmail: {
-                message: "Email введен некорректно"
+                message: "Эл. почта введена некорректно"
             }
         },
         name: {
@@ -130,6 +130,7 @@ const EditUserPage = () => {
                 <div className="col-md-6 offset-md-3 shadow p-4">
                     {!isLoading && Object.keys(professions).length > 0 ? (
                         <form onSubmit={handleSubmit}>
+                            <h3 className="mb-4">Редактировать профиль</h3>
                             <TextField
                                 label="Имя"
                                 name="name"
@@ -145,8 +146,8 @@ const EditUserPage = () => {
                                 error={errors.email}
                             />
                             <ProfessionField
-                                label="Выбери свою профессию"
-                                defaultOption="Choose..."
+                                label="Ваша профессия"
+                                defaultOption="Выбрать..."
                                 options={professions}
                                 name="profession"
                                 onChange={handleChange}
@@ -155,9 +156,9 @@ const EditUserPage = () => {
                             />
                             <RadioField
                                 options={[
-                                    { name: "Male", value: "male" },
-                                    { name: "Female", value: "female" },
-                                    { name: "Other", value: "other" }
+                                    { name: "Муж", value: "male" },
+                                    { name: "Жен", value: "female" },
+                                    { name: "Не определился", value: "other" }
                                 ]}
                                 value={data.sex}
                                 name="sex"
@@ -176,11 +177,11 @@ const EditUserPage = () => {
                                 disabled={!isValid}
                                 className="btn btn-primary w-100 mx-auto"
                             >
-                                Save
+                                Сохранить изменения
                             </button>
                         </form>
                     ) : (
-                        "Loading..."
+                        "Поиск пользователя..."
                     )}
                 </div>
             </div>

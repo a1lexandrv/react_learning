@@ -10,18 +10,18 @@ const UserPage = ({ userId }) => {
     useEffect(() => {
         api.users.getById(userId).then((data) => setUser(data));
     }, []);
-    const handleClick = () => {
-        history.push("/users");
+    const handleSubmit = () => {
+        history.push(`${userId}/edit`);
     };
     if (user) {
         return (
             <div>
                 <h1> {user.name}</h1>
-                <h2>Профессия: {user.profession.name}</h2>
+                <h6>Профессия: {user.profession.name}</h6>
                 <QualitiesList qualities={user.qualities} />
-                <p>completedMeetings: {user.completedMeetings}</p>
-                <h2>Rate: {user.rate}</h2>
-                <button onClick={handleClick}>Редактировать профиль</button>
+                <p>Всего встреч: {user.completedMeetings}</p>
+                <h6>Оценка: {user.rate}</h6>
+                <button onClick={handleSubmit}>Редактировать профиль</button>
             </div>
         );
     } else {
