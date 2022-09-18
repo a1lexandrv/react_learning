@@ -28,7 +28,7 @@ const UserTable = ({
         professions: { path: "profession.name", name: "Профессия" },
         completedMeetings: {
             path: "completedMeetings",
-            name: "Встретился, раз"
+            name: "Всего встреч"
         },
         rate: { path: "rate", name: "Оценка" },
         bookmark: {
@@ -47,7 +47,7 @@ const UserTable = ({
                     onClick={() => onDelete(user._id)}
                     className="btn btn-danger"
                 >
-                    delete
+                    Удалить
                 </button>
             )
         }
